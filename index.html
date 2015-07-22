@@ -152,6 +152,18 @@
                         console.log(error); 
                     }
                 });
+
+                $.ajax({
+                    type: 'GET',
+                    url: "https://api.instagram.com/v1/users/" + userid + "/media/recent/?access_token=" + myToken,
+                    dataType: 'jsonp',
+                    success: function(json) {
+                        createPhotoGrid(json);
+                    },
+                    error:  function(error) {
+                        console.log(error);
+                    }
+                });
             }  
               
             getData();
