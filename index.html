@@ -73,7 +73,6 @@
             /* Variable that will grab the auth token from the url once the user has authenticated themselves through Instagram */
             var myToken = window.location.hash.split("=");
             myToken = myToken[1];
-            console.log(myToken)
 
             //This is the Client ID from the Instagram API
             var client_id = "671ccd3a85344daf8e912c85986e3ff1";
@@ -99,9 +98,7 @@
                 }
             }
 
-            /*aboutMe.append('<div class="col-sm-6 col-sm-offset-3" id="welcome-default"><h1 class="text-center">Welcome to my broken babby web app. Please <a href="https://instagram.com/oauth/authorize/?client_id=' + client_id + '&redirect_uri=http://' + github_name +'.github.io/geekup-with-geekettes/&response_type=token" class="btn btn-primary btn-sm" id="insta-login"><i class="fa fa-instagram"></i> login</a> with Instagram to get started</h1></div>'); */
-
-            aboutMe.append('<div class="col-sm-6 col-sm-offset-3" id="welcome-default"><h1 class="text-center">Welcome to my broken babby web app. Please <a href="https://instagram.com/oauth/authorize/?client_id=' + client_id + '&redirect_uri=http://' + github_name +'.github.io/geekup-with-geekettes/oauth" class="btn btn-primary btn-sm" id="insta-login"><i class="fa fa-instagram"></i> login</a> with Instagram to get started</h1></div>');
+            aboutMe.append('<div class="col-sm-6 col-sm-offset-3" id="welcome-default"><h1 class="text-center">Welcome to my broken babby web app. Please <a href="https://instagram.com/oauth/authorize/?client_id=' + client_id + '&redirect_uri=http://' + github_name +'.github.io/geekup-with-geekettes/&response_type=token" class="btn btn-primary btn-sm" id="insta-login"><i class="fa fa-instagram"></i> login</a> with Instagram to get started</h1></div>');
 
             function createProfile (data) {
                 var data = data.data;
@@ -153,6 +150,7 @@
                     }, 
                     error:  function(error) { 
                         console.log(error); 
+                        console.log("token: " + myToken);
                     }
                 });
 
