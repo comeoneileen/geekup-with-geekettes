@@ -74,8 +74,7 @@
             var myToken = window.location.hash.split("=");
             myToken = myToken[1];
 
-            //This is the Client ID from the Instagram API below is an example.
-            // var client_id = "4948ecf94926486096fa105c5b78f9ff";
+            //This is the Client ID from the Instagram API
             var client_id = "671ccd3a85344daf8e912c85986e3ff1";
 
             //This is your Github Username
@@ -141,7 +140,18 @@
             }
 
             function getData () {
-                //Add Ajax calls here
+                // This Ajax call helps you authenticate your website with the Instagram API. 
+                $.ajax({
+                    type: 'GET',
+                    url: 'https://api.instagram.com/v1/users/' + userid + '/?access_token=' + myToken, 
+                    dataType: 'jsonp', 
+                    success: function(json) { 
+                        createProfile(json); 
+                    }, 
+                    error:  function(error) { 
+                        console.log(error); 
+                    }
+                });
             }  
               
             getData();
